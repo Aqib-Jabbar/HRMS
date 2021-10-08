@@ -1,0 +1,14 @@
+.nav-link:hover {
+box-shadow: 3px 2px 5px black;
+background-color: #cccccc;
+border-radius: 5px 0 5px 0;
+transition: 0.2ms;
+
+}
+.nav-item {
+    margin-right: 15px;
+}
+
+.right { float:right;
+     width:50%; 
+     clear:right }

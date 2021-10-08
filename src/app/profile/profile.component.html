@@ -1,0 +1,87 @@
+<!-- // model button -->
+<button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="bi bi-plus-circle-fill m-2"></i> Add New Profile 
+</button>
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form #form="ngForm" >
+
+        
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="postDataValue.title" placeholder="Type name.." required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">User Details</label>
+            <textarea type="text" class="form-control" name="description" [(ngModel)]="postDataValue.description" placeholder="Profile details.." required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Avatar</label>
+            <input type="text" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="http://" required>
+            
+          </div>
+          
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="postProfile()" [disabled]="!form.valid">Post Profile</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="profileName" [ngClass]="'success'"> {{profileName}} Added. </div>
+<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}} </div> 
+
+<div class="container text-center justify-content-around">
+  
+    <input class="form-control m-3 btn-outline-dark bg-light text-black" type="text" placeholder="Search" [(ngModel)]="term" aria-label="Search" style="width: 25%;">
+    
+  <div class="row row-col-4">
+    <div class="card col-xxl-3 m-3" *ngFor="let card of profileData | filter:term">
+      <img src="{{card.avatar}}" class="img-fluid" alt="something Wrong!!">
+      <div class="card-body">
+        <h5 class="card-title"><b>{{card.title}}</b></h5>
+        <h5 class="card-title">{{card.description}}</h5> 
+        <hr>
+        <div class="d-grid gap-2 d-md-flex justify-content-center">
+          <button class="btn btn-outline-success me-md-2" type="button"><i class="bi bi-trash" (click)="deleteProfile(card)"></i></button>
+          <button class="btn btn-outline-danger" type="button"><a routerLink="/profile/editProfile/{{card.id}}"><i class="bi bi-pen"></i></a></button>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+
+
+
+ <!-- // browse  image and upload -->
+          <!-- display image and profile Data like title details and description -->
+
+          <!-- logout will on right side and add profile pic and login user name -->
+          <!-- Auth0 integrity -->
+
+          <!-- edit functionality as view profile -->

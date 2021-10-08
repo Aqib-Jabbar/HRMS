@@ -1,0 +1,41 @@
+<div class="container mt-4" style="background-color: #f1f1f1; border-radius: 50%;">
+    <h2>Update Page</h2>
+    <div class="row">
+        <form #form="ngForm" >
+        
+        
+          <!-- <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Id:</label>
+            <input type="text" class="form-control" name="id" [(ngModel)]="postDataValue.id" placeholder="Type id." required>
+            
+          </div> -->
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="postDataValue.title"  placeholder="Type name.." required>
+            
+          </div>
+          
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">User Details</label>
+            <textarea type="text" class="form-control" name="description" [(ngModel)]="postDataValue.description"  placeholder="Profile details.." required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Avatar</label>
+            <input type="text" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="Give url http://" required>
+            
+          </div>
+         
+          
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="updateProfile()" [disabled]="!form.valid">Update</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+  
+      

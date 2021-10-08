@@ -1,0 +1,41 @@
+.success{
+    color: green;
+    font-size: 20px;
+}
+.error{
+    color: red;
+    font-size: 20px;
+} 
+.navbar-brand {
+    margin: 10px 20px;
+    font-size: 30px;
+}
+
+.nav-item {
+    margin: 10px 20px;
+}
+.nav-item :hover {
+    background-color: rgb(188, 207, 207);
+    transition: 0.04s;
+    border-radius: 4px;
+}
+
+.card {
+    width: 30%;
+    margin-bottom: 25px;
+    border-radius: 38px 0px 32px 0px;
+}
+.card:hover {
+    box-shadow: 3px 2px 8px black;
+    
+}
+img {
+    cursor: pointer;
+    width: auto;
+    height: 380px;
+    margin: 5px;
+    border-radius: 50%;
+
+}
+
+
