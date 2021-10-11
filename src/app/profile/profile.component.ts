@@ -49,7 +49,6 @@ export class ProfileComponent implements OnInit {
 
   postProfile(){
     this._userservice.postProfileData(this.postDataValue).subscribe((postDataValue:any)=>{
-     alert("Are You Sure to post data!!!")
      this.postDataValue =postDataValue;
      this.profileName = postDataValue.title;
       this.reset();

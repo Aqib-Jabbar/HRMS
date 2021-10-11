@@ -7,12 +7,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditProfileDataComponent } from './edit-profile-data/edit-profile-data.component';
+import { ViewDetailsComponent } from './view-details/view-details.component';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    EditProfileDataComponent
+    EditProfileDataComponent,
+    ViewDetailsComponent
   ],
   imports: [
     CommonModule,

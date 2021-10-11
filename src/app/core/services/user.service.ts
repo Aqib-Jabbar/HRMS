@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Profile } from '../model/profile';
 import { Observable } from 'rxjs';
@@ -9,7 +10,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  isShow?: boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -18,21 +18,21 @@ export class UserService {
 
 
   getProfileData(): Observable<Profile> {
-    return this.http.get<Profile>('https://615d577712571a0017207565.mockapi.io/api/v1/employees/');
+    return this.http.get<Profile>(environment.api_url);
   }
   getProfileDataId(id: Profile): Observable<Profile> {
-    return this.http.get<Profile>('https://615d577712571a0017207565.mockapi.io/api/v1/employees/' + id)
+    return this.http.get<Profile>(environment.api_url + id)
   }
 
-  postProfileData(data: any): Observable<Profile> {
-    return this.http.post<Profile>('https://615d577712571a0017207565.mockapi.io/api/v1/employees/', data);
+  postProfileData(data: Profile): Observable<Profile> {
+    return this.http.post<Profile>(environment.api_url, data);
   }
 
   deleteProfileData(userId: any): Observable<Profile> {
-    return this.http.delete<Profile>('https://615d577712571a0017207565.mockapi.io/api/v1/employees/' + userId);
+    return this.http.delete<Profile>(environment.api_url + userId);
   }
-  updateProfile(postdata: Profile) {
-    return this.http.put<Profile>(`https://615d577712571a0017207565.mockapi.io/api/v1/employees/` + postdata.id, postdata);
+  updateProfile(postdata: Profile): Observable<Profile>{
+    return this.http.put<Profile>(environment.api_url + postdata.id, postdata);
   }
 }
 

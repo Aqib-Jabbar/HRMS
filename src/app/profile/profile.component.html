@@ -24,12 +24,13 @@
           
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">User Details</label>
-            <textarea type="text" class="form-control" name="description" [(ngModel)]="postDataValue.description" placeholder="Profile details.." required></textarea>
+            <textarea rows="6" type="text" class="form-control row-4 " name="description" [(ngModel)]="postDataValue.description" placeholder="Profile details.." required></textarea>
           </div>
 
           <div class="mb-3">
-            <label for="exampleInputText" class="form-label">Avatar</label>
+            <label for="exampleInputText" class="form-label">User Image</label>
             <input type="text" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="http://" required>
+            <!-- <input type="file" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="http://" required> -->
             
           </div>
           
@@ -59,7 +60,7 @@
     
   <div class="row row-col-4">
     <div class="card col-xxl-3 m-3" *ngFor="let card of profileData | filter:term">
-      <img src="{{card.avatar}}" class="img-fluid" alt="something Wrong!!">
+      <a routerLink="/profile/viewDetails/{{card.id}}"><img src="{{card.avatar}}" class="img-fluid" alt="something Wrong!!"></a>
       <div class="card-body">
         <h5 class="card-title"><b>{{card.title}}</b></h5>
         <h5 class="card-title">{{card.description}}</h5> 
@@ -85,3 +86,5 @@
           <!-- Auth0 integrity -->
 
           <!-- edit functionality as view profile -->
+      
+

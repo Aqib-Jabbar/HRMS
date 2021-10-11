@@ -30,12 +30,13 @@ export class EditProfileDataComponent implements OnInit {
   ngOnInit(): void {
     
  this.id = +this.route.snapshot.params.id;
+ console.log(this.id);
 
  this.updateService.getProfileDataId(this.id)
     .subscribe((res:Profile) => 
     {
-                                    this.postDataValue = res;
-                                })
+       this.postDataValue = res;
+    })
    }
 
   updateProfile(){
@@ -43,9 +44,9 @@ export class EditProfileDataComponent implements OnInit {
    .subscribe
    (
     res => 
-        {
-          this.router.navigate(['/profile']);
-        }
+     {
+      this.router.navigate(['/profile']);
+    }
    );
    
   }
