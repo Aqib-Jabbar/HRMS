@@ -16,10 +16,12 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" *ngIf="!_authService.loggedIn()" routerLink="/auth" routerLinkActive="active">Login</a>
           </li>
-          <li class="nav-item right">
-            <a class="nav-link active" aria-current="page" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">Logout</a>
-          </li>
+          
+          
         </ul>
+      </div>
+      <div class="mr-4">
+         <a class="nav-link active bg-danger" aria-current="page" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">Logout</a>
       </div>
     </div>
   </nav>
