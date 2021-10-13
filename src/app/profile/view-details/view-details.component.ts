@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Profile } from 'src/app/core/model/profile';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 import { UserService } from 'src/app/core/services/user.service';
-import {} from '../../core/model/profile'
+
 
 @Component({
   selector: 'app-view-details',
@@ -11,24 +12,40 @@ import {} from '../../core/model/profile'
 })
 export class ViewDetailsComponent implements OnInit {
   id:any;
-  viewData:Profile = {
+  viewData:any = [{
     id:'',
     avatar:'',
     title:'',
-    description:''
+    description:'',
+    createdAt:''
+  }]
+  constructor(private route:ActivatedRoute , private _userService:UserService,private router:Router) { 
   }
-  constructor(private route:ActivatedRoute , private _userService:UserService) { }
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.params.id;
     console.log(this.id);
 
    
-      this._userService.getProfileDataId(this.id).subscribe(res => {
-        this.viewData =res
-        console.log(this.viewData);
+      this._userService.getProfileId(this.id).subscribe((res:any) => {
+        this.viewData = res
+        // this.router.navigate(['/profile/viewDetails']);
+        // this.router.navigate(["../sibling"],   {relativeTo: this.route});
+        // console.log(this.viewData);
       })
+      
     
   }
+  deleteProfile(viewData:any){
+    this._userService.deleteProfile(viewData);
+    this.getProfileAll();
+    this.router.navigate(['.'], {relativeTo: this.route.parent});
+  }
+
+  getProfileAll(){
+    this._userService.getProfileAll();
+  }
+
+  
 
 }

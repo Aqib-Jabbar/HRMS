@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../core/services/api.service';
+
 // import { emitWarning } from 'process';
 
-import { UserService } from '../core/services/user.service';
+
 
 
 
@@ -33,7 +35,7 @@ export class ProfileComponent implements OnInit {
   
   
   
-  constructor(private _userservice: UserService) {
+  constructor(private _apiService: ApiService) {
     this.getProfile();
   }
   
@@ -41,14 +43,16 @@ export class ProfileComponent implements OnInit {
     
   }
   getProfile(){
-    this._userservice.getProfileData().subscribe((profileData:any)=>{
+    this._apiService.getProfileData().subscribe((profileData:any)=>{
       this.profileData = profileData;
     },error => this.errorMessage = error)
+  
+
   }
 
 
   postProfile(){
-    this._userservice.postProfileData(this.postDataValue).subscribe((postDataValue:any)=>{
+    this._apiService.postProfileData(this.postDataValue).subscribe((postDataValue:any)=>{
      this.postDataValue =postDataValue;
      this.profileName = postDataValue.title;
       this.reset();
@@ -69,9 +73,9 @@ export class ProfileComponent implements OnInit {
   deleteProfile(card:any){
     if(confirm("Are You Sure to post data!!!")){
       
-      this._userservice.deleteProfileData(card.id).subscribe(res => {
+      this._apiService.deleteProfileData(card.id).subscribe(res => {
        this.profileData = this.profileData.filter(card => card.id !== card.id);
-       // location.reload();
+    
        this.getProfile();
      } );
     }

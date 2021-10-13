@@ -1,27 +1,44 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">HRMS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home"  routerLinkActive="active">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/profile" routerLinkActive="active">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" *ngIf="!_authService.loggedIn()" routerLink="/auth" routerLinkActive="active">Login</a>
-          </li>
-          
-          
-        </ul>
-      </div>
-      <div class="mr-4">
-         <a class="nav-link active bg-danger" aria-current="page" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">Logout</a>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">HRMS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/profile" routerLinkActive="active">Profile</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+
+  </div>
+  <div class="dropdown">
+    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong>Profile</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" routerLink="/profile">Profiles</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li>
+        <a class="dropdown-item logout" aria-current="page" style="cursor: pointer;" *ngIf="_authService.loggedIn()"
+          (click)="_authService.logout()">Sign out</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" aria-current="page" *ngIf="!_authService.loggedIn()" routerLink="/auth"
+          routerLinkActive="active">Sign in</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>

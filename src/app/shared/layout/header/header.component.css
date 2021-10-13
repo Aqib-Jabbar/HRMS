@@ -1,7 +1,7 @@
 .nav-link:hover {
-box-shadow: 3px 2px 5px black;
+box-shadow: 1px 1px 5px black;
 background-color: #cccccc;
-border-radius: 5px 0 5px 0;
+border-radius: 2px;
 transition: 0.2ms;
 
 }
@@ -11,4 +11,15 @@ transition: 0.2ms;
 
 .right { float:right;
      width:50%; 
-     clear:right }
+     clear:right 
+    }
+     
+    .dropdown {
+        padding-right: 20px;
+        /* background-color: violet; */
+      
+    }
+    .dropdown-menu {
+
+        left: -52px;
+    }

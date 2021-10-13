@@ -7,6 +7,13 @@
             <h3 class="mb-3 pt-4"><b>Name: </b> <i>{{viewData.title}}</i></h3>
             <p class="mb-3 pt-4"><b>Details: </b>{{viewData.description}}</p>
             <span class="mb-3 pt-4"><b>URL:</b> {{viewData.avatar}}</span>
+            <br><br>
+            <small><b>createdAt: </b>{{viewData.createdAt}}</small>
+            <hr>
+            <div class="d-grid gap-2 d-md-flex justify-content-center">
+                <button class="btn btn-outline-danger me-md-2" type="button"><i class="bi bi-trash" (click)="deleteProfile(viewData)"></i></button>
+                <button class="btn btn-outline-success" type="button"><a routerLink="/profile/editProfile/{{viewData.id}}"><i class="bi bi-pen"></i></a></button>
+              </div>
         </div>
     </div>
 </div>

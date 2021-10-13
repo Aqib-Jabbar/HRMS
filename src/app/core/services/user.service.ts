@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
 import { Profile } from '../model/profile';
 import { Observable } from 'rxjs';
+
+
 
 
 
@@ -10,30 +11,32 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  
+  constructor(private _apiService:ApiService) { }
 
-  constructor(private http: HttpClient) { }
+getProfileId(userId:any): Observable<Profile>{
+ return this._apiService.getProfileDataId(userId);
+}
 
-  // profile CRUD operations
-  // Link { https://jsonplaceholder.typicode.com/users } from fake api
 
+deleteProfile(viewData:any)
+  {
+   if(confirm('Are you sure to delete?')){
+  
+      this._apiService.deleteProfileData(viewData.id).subscribe(res => {
+      viewData = viewData.filter( (data:any) => data.id !== data.id);
 
-  getProfileData(): Observable<Profile> {
-    return this.http.get<Profile>(environment.api_url);
+      })
+      this._apiService.getProfileData();
+      // this.router.navigate(['/profile']);
+    }
   }
-  getProfileDataId(id: Profile): Observable<Profile> {
-    return this.http.get<Profile>(environment.api_url + id)
+
+  getProfileAll(){
+   return  this._apiService.getProfileData().subscribe();
   }
 
-  postProfileData(data: Profile): Observable<Profile> {
-    return this.http.post<Profile>(environment.api_url, data);
-  }
-
-  deleteProfileData(userId: any): Observable<Profile> {
-    return this.http.delete<Profile>(environment.api_url + userId);
-  }
-  updateProfile(postdata: Profile): Observable<Profile>{
-    return this.http.put<Profile>(environment.api_url + postdata.id, postdata);
-  }
+  
 }
 
 

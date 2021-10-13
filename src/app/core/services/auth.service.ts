@@ -32,4 +32,7 @@ isShow!:boolean;
     
    
   }
+  username(){
+    return this.username;
+  }
 }

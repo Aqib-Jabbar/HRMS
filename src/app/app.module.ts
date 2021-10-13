@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule.forRoot({
+      domain:'dev-ey-a0tus.us.auth0.com',
+      clientId:'3bNLqZPML7gOAEIfj0GNSOUpU46fx8Gy'
+    })
     
   ],
   providers: [],

@@ -21,6 +21,7 @@ export class AuthComponent implements OnInit {
   check(email: any, password: any) {
     var output = this.userService.checkusernameandpassword(email, password);
     if (output == true) {
+      // console.log(email)
       this.route.navigate(['/profile'])
       this.isShow = true
     }
