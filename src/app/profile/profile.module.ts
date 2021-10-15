@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthModule } from '@auth0/auth0-angular';
+
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
@@ -23,10 +23,7 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    AuthModule.forRoot({
-      domain:'dev-ey-a0tus.us.auth0.com',
-      clientId:'3bNLqZPML7gOAEIfj0GNSOUpU46fx8Gy'
-    })
+   
   ]
 })
 export class ProfileModule { }

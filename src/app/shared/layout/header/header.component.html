@@ -13,32 +13,37 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/profile" routerLinkActive="active">Profile</a>
         </li>
+        <li>
+          <a class="dropdown-item logout" aria-current="page" style="cursor: pointer;" *ngIf="_authService.isAuthenticated$ | async"><button class="btn btn-danger btn-block" (click)="logout()">Log out</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="dropdown-item" aria-current="page" *ngIf="(_authService.isAuthenticated$ | async) === false"><button class="btn btn-success" (click)="loginWithRedirect()">Sign in</button></a>
+        </li>
       </ul>
     </div>
 
   </div>
-  <div class="dropdown">
+  
+  <div class="dropdown" *ngIf="_authService.user$ | async as user" >
     <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
       data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>Profile</strong>
+      <img src="{{user.picture}}" alt="" width="32" height="32" class="rounded-circle me-2">
+      <div>
+        <strong>{{user.name}}</strong>
+        <p>{{user.email}}</p>
+
+      </div>
     </a>
     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-
-      <li><a class="dropdown-item" href="#">Settings</a></li>
       <li><a class="dropdown-item" routerLink="/profile">Profiles</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li>
-        <a class="dropdown-item logout" aria-current="page" style="cursor: pointer;" *ngIf="_authService.loggedIn()"
-          (click)="_authService.logout()">Sign out</a>
-      </li>
-      <li class="nav-item">
-        <a class="dropdown-item" aria-current="page" *ngIf="!_authService.loggedIn()" routerLink="/auth"
-          routerLinkActive="active">Sign in</a>
-      </li>
     </ul>
   </div>
+ 
+    
+  
+  
 
 </nav>

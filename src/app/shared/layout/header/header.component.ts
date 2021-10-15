@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 
-import { AuthService} from '../../../core/services/auth.service'
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +10,26 @@ import { AuthService} from '../../../core/services/auth.service'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public _authService: AuthService) { }
+  profileJson: unknown;
+  constructor(public _authService: AuthService, @Inject(DOCUMENT) private doc: Document,) { }
 
   ngOnInit(): void {
+    this._authService.user$.subscribe(
+      (profile) => (this.profileJson = JSON.stringify(profile, null, 2)),
+    );
+  }
+
+  loginWithRedirect(): void {
+    this._authService.loginWithRedirect();
   }
   
-
+  logout(): void {
+    this._authService.logout({ returnTo: this.doc.location.origin })
+  }
 
 }
 
 
-// use auth from auth0
+
+
+

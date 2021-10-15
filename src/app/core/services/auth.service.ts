@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,15 @@ isShow!:boolean;
     }
 
   }
+
+
+  // login(){
+  //   this.auth0.loginWithRedirect(
+  //     this.router.navigate(['/profile'])
+  //   )
+  // }
+
+
   loggedIn(){
     return !!localStorage.getItem('username');
   }
