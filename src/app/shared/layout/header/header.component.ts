@@ -11,7 +11,7 @@ import { AuthService } from '@auth0/auth0-angular';
 export class HeaderComponent implements OnInit {
 
   profileJson: unknown;
-  constructor(public _authService: AuthService, @Inject(DOCUMENT) private doc: Document,) { }
+  constructor(public _authService: AuthService, @Inject(DOCUMENT) private doc: Document) { }
 
   ngOnInit(): void {
     this._authService.user$.subscribe(
@@ -20,7 +20,9 @@ export class HeaderComponent implements OnInit {
   }
 
   loginWithRedirect(): void {
-    this._authService.loginWithRedirect();
+    this._authService.loginWithRedirect((res:any) =>{
+      alert(res);
+    });
   }
   
   logout(): void {

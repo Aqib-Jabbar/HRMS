@@ -10,12 +10,20 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditProfileDataComponent } from './edit-profile-data/edit-profile-data.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 
+import { PostProfileComponent } from './post-profile/post-profile.component';
+import { ProgressBarDirective } from './progress-bar.directive';
+import { LoadComponent } from './load/load.component';
+
+
 
 @NgModule({
   declarations: [
     ProfileComponent,
     EditProfileDataComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
+    PostProfileComponent,
+     ProgressBarDirective,
+     LoadComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +32,8 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     FormsModule,
     Ng2SearchPipeModule,
    
-  ]
+  ],  
+  exports: [ProgressBarDirective],
+  bootstrap: [LoadComponent] // bootstrapped entry component
 })
 export class ProfileModule { }

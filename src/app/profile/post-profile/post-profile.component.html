@@ -1,0 +1,63 @@
+<!-- // model button -->
+<button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="bi bi-plus-circle-fill m-2"></i> Add New Profile 
+  </button>
+  
+
+  
+  <!-- Modal -->
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <form #form="ngForm" >
+  
+          
+            <div class="mb-3">
+              <label for="exampleInputText" class="form-label">Title</label>
+              <input type="text" class="form-control" name="title" [(ngModel)]="postDataValue.title" placeholder="Type name.." required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">User Details</label>
+              <textarea rows="6" type="text" class="form-control row-4 " name="description" [(ngModel)]="postDataValue.description" placeholder="Profile details.." required></textarea>
+            </div>
+  
+            <div class="mb-3">
+              <label for="exampleInputText" class="form-label">User Image</label>
+              <input type="text" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="http://" required>
+              <!-- <input type="file" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="http://" required> -->
+              
+            </div>
+            
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" (click)="postProfile()" [disabled]="!form.valid">Post Profile</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  
+<!-- 
+
+  <div class="errorWrapper">
+    <div *ngIf="profileName" [ngClass]="'success'"> {{profileName}} Added. </div>
+    <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}} </div> 
+  
+  </div> -->

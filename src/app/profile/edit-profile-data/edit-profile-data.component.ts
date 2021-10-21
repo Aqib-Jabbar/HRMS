@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Profile } from 'src/app/core/model/profile';
 import { ApiService } from 'src/app/core/services/api.service';
 
@@ -23,7 +24,7 @@ export class EditProfileDataComponent implements OnInit {
   }
 
 
-  constructor(private updateService:ApiService,private route : ActivatedRoute, private router : Router) { 
+  constructor(private updateService:ApiService,private route : ActivatedRoute, private router : Router, private notify:ToastrService) { 
     
     
   }
@@ -42,12 +43,14 @@ export class EditProfileDataComponent implements OnInit {
 
   updateProfile(){
    return this.updateService.updateProfile(this.postDataValue)
-   .subscribe( res => 
-    {
-      // this.router.navigate(['/profile']);
+   .subscribe( res => {
+      this.router.navigate(['/profile']);
+      this.notify.success("Successfully Updated");
       // this.route.parent
-      this.router.navigate(['.'], {relativeTo: this.route.parent});
+      // this.router.navigate(['.'], {relativeTo: this.route.parent});
       // this.router.navigate(['/profile/viewDetails/'+ this.postDataValue.id])
+    }, error => {
+      this.notify.error("Error:" + error)
     }
    );
    

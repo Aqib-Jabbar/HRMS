@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 import { UserService } from 'src/app/core/services/user.service';
@@ -19,19 +20,15 @@ export class ViewDetailsComponent implements OnInit {
     description:'',
     createdAt:''
   }]
-  constructor(private route:ActivatedRoute , private _userService:UserService,private router:Router) { 
+  constructor(private route:ActivatedRoute , private _userService:UserService,private router:Router, private notify:ToastrService) { 
   }
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.params.id;
-    console.log(this.id);
-
-   
+    // console.log(this.id);
       this._userService.getProfileId(this.id).subscribe((res:any) => {
         this.viewData = res
-        // this.router.navigate(['/profile/viewDetails']);
-        // this.router.navigate(["../sibling"],   {relativeTo: this.route});
-        // console.log(this.viewData);
+    
       })
       
     
@@ -39,7 +36,9 @@ export class ViewDetailsComponent implements OnInit {
   deleteProfile(viewData:any){
     this._userService.deleteProfile(viewData);
     this.getProfileAll();
-    this.router.navigate(['.'], {relativeTo: this.route.parent});
+    this.router.navigate(['/profile']);
+    this.notify.success('Successfully Deleted');
+   
   }
 
   getProfileAll(){

@@ -4,12 +4,12 @@ background-color: #cccccc;
 border-radius: 2px;
 transition: 0.2ms;
 
-}
-.nav-item {
+            }
+   .nav-item {
     margin-right: 15px;
-}
+            }
 
-.right { float:right;
+   .right { float:right;
      width:50%; 
      clear:right 
     }
@@ -22,4 +22,13 @@ transition: 0.2ms;
     .dropdown-menu {
 
         left: -52px;
+    }
+
+    .navbar {
+        background-color: rgba(63, 7, 7, 0.281);
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 10;
+        
     }

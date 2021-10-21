@@ -1,86 +1,65 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ApiService } from '../core/services/api.service';
-
-// import { emitWarning } from 'process';
-
-
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
+  template: '<img src="/images/spinner.gif" alt="The data is loading" />',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
-  
+export class ProfileComponent implements OnInit, OnDestroy {
+
   // get data from service
-  profileData:any[]=[];
-  term:string="";
+  profileData: any[] = [];
+  sub: any = Subscription;
+  term: string = "";
+  spinner: boolean = false;
 
- 
-
-  postDataValue = {
-      id:"",
-      title :"",
-      description :"",
-      avatar:""
-  }
   errorMessage = '';
   profileName = '';
 
-  
+
+
   // post data from template
-  
-  
-  
-  constructor(private _apiService: ApiService) {
-    this.getProfile();
+
+
+
+  constructor(private _apiService: ApiService, private notify: ToastrService) {
   }
-  
+
   ngOnInit(): void {
-    
+    this.getProfile();
+
   }
-  getProfile(){
-    this._apiService.getProfileData().subscribe((profileData:any)=>{
+
+  getProfile() {
+    this.sub = this._apiService.getProfileData().subscribe((profileData: any) => {
       this.profileData = profileData;
-    },error => this.errorMessage = error)
-  
-
+      // this.notify.success("Loaded Successfully")
+    }, error => {
+      this.notify.error(error)
+    })
   }
 
+  deleteProfile(card: any) {
+    if (confirm("Are You Sure to post data!!!")) {
+      this.sub = this._apiService.deleteProfileData(card.id).subscribe(res => {
 
-  postProfile(){
-    this._apiService.postProfileData(this.postDataValue).subscribe((postDataValue:any)=>{
-     this.postDataValue =postDataValue;
-     this.profileName = postDataValue.title;
-      this.reset();
-      location.reload();
-    }, error => this.errorMessage = error);
-  }
-  
-  
-  private reset() {
-    this.postDataValue.id="",
-    this.postDataValue.title = "",
-    this.postDataValue.description ="",
-    this.postDataValue.avatar="",
-    this.errorMessage = '';
-    this.profileName = '';
-  }
-  
-  deleteProfile(card:any){
-    if(confirm("Are You Sure to post data!!!")){
-      
-      this._apiService.deleteProfileData(card.id).subscribe(res => {
-       this.profileData = this.profileData.filter(card => card.id !== card.id);
-    
-       this.getProfile();
-     } );
+        this.profileData = this.profileData.filter(card => card.id !== card.id);
+        this.notify.success("Successfully Deleted!!");
+        this.getProfile();
+      }, error => {
+        this.notify.error("Error:" + error)
+      });
     }
-    
-    
- }
+  }
+  ngOnDestroy() {
+    // console.log("Ng on destroy work" + this.ngOnDestroy +this.sub);
+    this.sub.unsubscribe();
+  }
 
 }
