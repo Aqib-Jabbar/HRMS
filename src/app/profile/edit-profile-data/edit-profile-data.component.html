@@ -23,6 +23,13 @@
             <label for="exampleInputText" class="form-label">Avatar</label>
             <input type="text" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="Give url http://" required>
           </div>
+        
+            <label for="exampleInputText" class="form-label">Select Country</label>
+            <select class="form-select" aria-label="Default select example" id="countryName"  [(ngModel)]="postDataValue.countryName" name="countryName" required
+            >
+            <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>  
+          </select>
+        
          
           
         </form>

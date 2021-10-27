@@ -40,7 +40,7 @@ deleteProfile(viewData:any)
 }
 
 
-// Extras for my own
+
 
 // const httpHeaders = new HttpHeaders();
 //     httpHeaders.append('content-type', 'application/json');

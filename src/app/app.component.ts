@@ -13,21 +13,23 @@ import { concatMap,tap,pluck } from 'rxjs/operators';
 export class AppComponent {
   metadata:unknown = {};
 
-  // Inject both AuthService and HttpClient
+ 
   constructor(public auth: AuthService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.auth.user$
     .pipe(
       concatMap((user:any) =>
-        // Use HttpClient to make the call
+ 
         this.http.get(
-          encodeURI(`https://dev-ey-a0tus.us.auth0.com/api/v2/${user.sub}`)
+          encodeURI(`https://dev-ey-a0tus.us.auth0.com/api/v2/users/${user.sub}`)
         )
       ),
       pluck('user_metadata'),
       tap((meta) => (this.metadata = meta))
     )
     .subscribe();
+    
   }
+
 }

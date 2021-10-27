@@ -8,23 +8,15 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  template: '<img src="/images/spinner.gif" alt="The data is loading" />',
+  // template: '<img src="/images/spinner.gif" alt="The data is loading" />',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 
-  // get data from service
   profileData: any[] = [];
   sub: any = Subscription;
   term: string = "";
-  spinner: boolean = false;
-
-  errorMessage = '';
-  profileName = '';
-
-
-
-  // post data from template
+  // spinner: boolean = false;
 
 
 
@@ -39,7 +31,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getProfile() {
     this.sub = this._apiService.getProfileData().subscribe((profileData: any) => {
       this.profileData = profileData;
-      // this.notify.success("Loaded Successfully")
+    
     }, error => {
       this.notify.error(error)
     })
@@ -50,7 +42,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.sub = this._apiService.deleteProfileData(card.id).subscribe(res => {
 
         this.profileData = this.profileData.filter(card => card.id !== card.id);
-        this.notify.success("Successfully Deleted!!");
+        this.notify.success("Deleted!!");
         this.getProfile();
       }, error => {
         this.notify.error("Error:" + error)

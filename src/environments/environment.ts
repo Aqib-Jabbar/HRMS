@@ -6,6 +6,11 @@ export const environment = {
   production: false,
   api_url:'https://615d577712571a0017207565.mockapi.io/api/v1/employees/'
 };
+export const environment1 = {
+  production: false,
+  country_url:'https://restcountries.com/v2/all'
+};
+
 
 /*
  * For easier debugging in development mode, you can import the following file

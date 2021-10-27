@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 import { AuthService } from '@auth0/auth0-angular';
 
@@ -11,25 +13,36 @@ import { AuthService } from '@auth0/auth0-angular';
 export class HeaderComponent implements OnInit {
 
   profileJson: unknown;
-  constructor(public _authService: AuthService, @Inject(DOCUMENT) private doc: Document) { }
+  constructor(public _authService: AuthService, @Inject(DOCUMENT) private doc: Document, private router:Router) { }
 
   ngOnInit(): void {
     this._authService.user$.subscribe(
-      (profile) => (this.profileJson = JSON.stringify(profile, null, 2)),
+      (profile) => (this.profileJson = JSON.stringify(profile,null,2)),
+      
     );
   }
 
   loginWithRedirect(): void {
-    this._authService.loginWithRedirect((res:any) =>{
-      alert(res);
-    });
-  }
   
-  logout(): void {
-    this._authService.logout({ returnTo: this.doc.location.origin })
+    // const token =localStorage.getItem('token');
+    this._authService.loginWithRedirect().subscribe(res => {
+      this.router.navigate(['/profile'])
+
+    })
   }
 
+  
+  logout(): void {
+    this._authService.logout({ returnTo: this.doc.location.origin });
+ 
+  }
+ 
+
+
+
+  
 }
+
 
 
 

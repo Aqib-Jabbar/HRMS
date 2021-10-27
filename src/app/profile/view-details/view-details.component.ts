@@ -18,7 +18,8 @@ export class ViewDetailsComponent implements OnInit {
     avatar:'',
     title:'',
     description:'',
-    createdAt:''
+    createdAt:'',
+    countryName:""
   }]
   constructor(private route:ActivatedRoute , private _userService:UserService,private router:Router, private notify:ToastrService) { 
   }
@@ -34,11 +35,12 @@ export class ViewDetailsComponent implements OnInit {
     
   }
   deleteProfile(viewData:any){
-    this._userService.deleteProfile(viewData);
-    this.getProfileAll();
-    this.router.navigate(['/profile']);
-    this.notify.success('Successfully Deleted');
-   
+    
+      this._userService.deleteProfile(viewData);
+      this.getProfileAll();
+      this.router.navigate(['/profile']);
+      this.notify.success('Deleted');
+  
   }
 
   getProfileAll(){
