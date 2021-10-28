@@ -48,6 +48,9 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
       clientId: '3bNLqZPML7gOAEIfj0GNSOUpU46fx8Gy',
       
       audience: 'https://dev-ey-a0tus.us.auth0.com/api/v2/',
+      // redirectUri: window.location.origin,
+      cacheLocation: 'localstorage',
+      
     
       scope: 'read:current_user',
       

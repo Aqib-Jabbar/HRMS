@@ -33,10 +33,9 @@ countries:any;
     this._apiService.postProfileData(this.postDataValue).subscribe((postDataValue:Profile)=>{
       this.postDataValue = postDataValue;
       // console.log(this.postDataValue);
-     this.notify.success('Created');
+      location.reload();
+      this.notify.success('Created');
      this.reset();
- 
-     location.reload();
     }, error => {
       this.notify.error("Error:" + error)})
   }

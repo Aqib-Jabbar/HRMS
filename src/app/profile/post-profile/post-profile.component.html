@@ -22,8 +22,8 @@
 
           <div class="mb-3">
             <label for="exampleInputText" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" [(ngModel)]="postDataValue.title"
-              placeholder="Type name.." required #title="ngModel" minlength="6">
+            <input type="text" class="form-control " name="title" [(ngModel)]="postDataValue.title" required
+              placeholder="Type name" #title="ngModel" minlength="6" >
 
             <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
               <div *ngIf="title.errors?.required">
@@ -37,8 +37,8 @@
 
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">User Details</label>
-            <textarea rows="6" type="text" class="form-control row-4 " name="description"
-              [(ngModel)]="postDataValue.description" placeholder="Profile details.." required #description="ngModel"
+            <textarea rows="6" type="text" class="form-control row-4 required" name="description"
+              [(ngModel)]="postDataValue.description" placeholder="Profile details"  #description="ngModel" required
               minlength="30"></textarea>
 
             <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
@@ -53,8 +53,8 @@
 
           <div class="mb-3">
             <label for="exampleInputText" class="form-label">User Image</label>
-            <input type="text" class="form-control " name="avatar" [(ngModel)]="postDataValue.avatar"
-              placeholder="http://" required #avatar="ngModel">
+            <input type="text" class="form-control required" name="avatar" [(ngModel)]="postDataValue.avatar" required
+              placeholder="http://"  #avatar="ngModel">
 
             <div *ngIf="avatar.invalid && (avatar.dirty || avatar.touched)" class="alert alert-danger">
               <div *ngIf="avatar.errors?.required">
@@ -69,7 +69,7 @@
 
           <div class="mb-3">
             <label for="exampleInputText" class="form-label">Select Country</label>
-            <select class="form-select " aria-label="Default select example" id="countryName" required
+            <select class="form-select required" aria-label="Default select example" id="countryName" required
               [(ngModel)]="postDataValue.countryName" name="countryName" #countryName="ngModel">
               <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
             </select>
