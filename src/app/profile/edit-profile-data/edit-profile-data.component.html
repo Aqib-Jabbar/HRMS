@@ -1,46 +1,78 @@
-<div class="header text-center mb-4" style="margin-top: 80px;">
-<h2>Update Page</h2>
-  </div>
-<div class="container" style="background-color: rgba(63, 7, 7, 0.034); border-radius: 50%; margin-top: 40px;">
-    <div class="row">
-        <form #form="ngForm" >
-          <!-- <div class="mb-3">
-            <label for="exampleInputText" class="form-label">Id:</label>
-            <input type="text" class="form-control" name="id" [(ngModel)]="postDataValue.id" placeholder="Type id." required>
-            
-          </div> -->
-          
-          <div class="mb-3">
-            <label for="exampleInputText" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" [(ngModel)]="postDataValue.title"  placeholder="Type name.." required>
-          </div>
-          
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">User Details</label>
-            <textarea type="text" class="form-control" name="description" [(ngModel)]="postDataValue.description"  placeholder="Profile details.." required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputText" class="form-label">Avatar</label>
-            <input type="text" class="form-control" name="avatar" [(ngModel)]="postDataValue.avatar" placeholder="Give url http://" required>
-          </div>
-        
-            <label for="exampleInputText" class="form-label">Select Country</label>
-            <select class="form-select" aria-label="Default select example" id="countryName"  [(ngModel)]="postDataValue.countryName" name="countryName" required
-            >
-            <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>  
-          </select>
-        
-         
-          
-        </form>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" (click)="updateProfile()" [disabled]="!form.valid">Update</button>
-        </div>
-
-    </div>
+<div class="header text-center mb-4" style="margin-top: 80px">
+  <h2>Update Page</h2>
 </div>
+<div
+  class="container"
+  style="
+    background-color: rgba(63, 7, 7, 0.034);
+    border-radius: 50%;
+    margin-top: 40px;
+  "
+>
+  <div class="row">
+    <form #form="ngForm">
+      <div class="mb-3">
+        <label for="exampleInputText" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="postDataValue.title"
+          placeholder="Type name.."
+          required
+        />
+      </div>
 
+      <div class="mb-3">
+        <label for="exampleInputText" class="form-label">Avatar</label>
+        <input
+          type="text"
+          class="form-control"
+          name="avatar"
+          [(ngModel)]="postDataValue.avatar"
+          placeholder="Give url http://"
+          required
+        />
+      </div>
 
+      <label for="exampleInputText" class="form-label">Select Country</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="countryName"
+        [(ngModel)]="postDataValue.countryName"
+        name="countryName"
+        required
+      >
+        <option *ngFor="let country of countries" [value]="country.name">
+          {{ country.name }}
+        </option>
+      </select>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >User Details</label
+        >
+        <textarea
+          rows="5"
+          type="text"
+          class="form-control"
+          name="description"
+          [(ngModel)]="postDataValue.description"
+          placeholder="Profile details.."
+          required
+        ></textarea>
+      </div>
+    </form>
 
-  
-      
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="updateProfile()"
+        [disabled]="!form.valid"
+      >
+        Update
+      </button>
+    </div>
+  </div>
+</div>

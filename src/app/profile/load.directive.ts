@@ -1,10 +1,8 @@
-import { Directive } from '@angular/core';
+import { Directive } from "@angular/core";
 
 @Directive({
-  selector: '[appLoad]'
+  selector: "[appLoad]",
 })
 export class LoadDirective {
-
-  constructor() { }
-
+  constructor() {}
 }

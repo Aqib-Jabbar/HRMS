@@ -1,34 +1,34 @@
+.nav-item {
+  margin-right: 15px;
+}
+
+.dropdown {
+  padding-right: 20px;
+}
+
+.navbar {
+  background-color: rgba(63, 7, 7, 0.281);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (min-width: 500px) and (max-width: 972px) {
+  .nav-link:hover {
+    box-shadow: 1px 1px 8px snow;
+  }
+  .navbar-brand {
+    margin-bottom: 20px;
+  }
+
+  .dropdown-menu {
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 16px;
+  }
+}
+
 .nav-link:hover {
-box-shadow: 1px 1px 5px black;
-background-color: #cccccc;
-border-radius: 2px;
-transition: 0.2ms;
-
-            }
-   .nav-item {
-    margin-right: 15px;
-            }
-
-   .right { float:right;
-     width:50%; 
-     clear:right 
-    }
-     
-    .dropdown {
-        padding-right: 20px;
-        /* background-color: violet; */
-      
-    }
-    .dropdown-menu {
-
-        left: -52px;
-    }
-
-    .navbar {
-        background-color: rgba(63, 7, 7, 0.281);
-        position: fixed;
-        top: 0px;
-        width: 100%;
-        z-index: 10;
-        
-    }
+  box-shadow: 2px 1px 9px wheat;
+}

@@ -2,18 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-
 export const environment = {
   production: false,
-  api_url:'https://615d577712571a0017207565.mockapi.io/api/v1/employees/'
+  api_url: "https://615d577712571a0017207565.mockapi.io/api/v1/employees/",
+  country_url: "https://restcountries.com/v2/all",
 };
-export const environment1 = {
-  production: false,
-  country_url:'https://restcountries.com/v2/all'
-};
-
-
-
+// export const environment1 = {
+//   production: false,
+// };
 
 // import { domain,clientId  } from '../../auth_config.json';
 

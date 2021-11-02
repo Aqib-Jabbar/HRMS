@@ -1,5 +1,7 @@
-img:hover {
-    cursor: pointer;
-    box-shadow: 4px 3px 10px black;
-}
+/* @media (min-width: 500px) and (max-width: 972px) {
+} */
 
+img:hover {
+  cursor: pointer;
+  box-shadow: 4px 3px 10px black;
+}

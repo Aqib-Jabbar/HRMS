@@ -1,44 +1,41 @@
-.success{
-    color: green;
-    font-size: 20px;
+.success {
+  color: green;
+  font-size: 20px;
 }
-.error{
-    color: red;
-    font-size: 20px;
-} 
+.error {
+  color: red;
+  font-size: 20px;
+}
 .navbar-brand {
-    margin: 10px 20px;
-    font-size: 30px;
+  margin: 10px 20px;
+  font-size: 30px;
 }
 
 .nav-item {
-    margin: 10px 20px;
+  margin: 10px 20px;
 }
 .nav-item :hover {
-    background-color: rgb(188, 207, 207);
-    transition: 0.4s;
-    border-radius: 4px;
+  background-color: rgb(188, 207, 207);
+  transition: 0.4s;
+  border-radius: 4px;
 }
 
 .card {
-    width: 30%;
-    margin-bottom: 25px;
-    border-radius: 8px 0px 2px 0px;
+  /* width: 30%; */
+  margin-bottom: 25px;
+  border-radius: 8px 0px 2px 0px;
 }
 .card:hover {
-    /* background-color: rgba(63, 7, 7, 0.281); */
-    box-shadow: 2px 1px 8px black;
-    
+  /* background-color: rgba(63, 7, 7, 0.281); */
+  box-shadow: 2px 1px 8px black;
 }
 img {
-    cursor: pointer;
-    width: auto;
-    height: 380px;
-    margin: 5px;
-    border-radius: 50%;
-
+  cursor: pointer;
+  width: auto;
+  height: 380px;
+  margin: 5px;
+  border-radius: 50%;
 }
-
 
 /* @media screen and (min-width: 480px) {
     .container {

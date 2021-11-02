@@ -1,23 +1,19 @@
+<ngx-ui-loader
+  fgsColor="blue"
+  pbColor="blue"
+  text="Please wait..."
+></ngx-ui-loader>
 
-<ngx-ui-loader fgsColor="blue" pbColor="blue" text="Please wait..."></ngx-ui-loader>
+<div class="container32" style="width: 100%">
+  <div class="row">
+    <app-header></app-header>
+  </div>
 
-<div class="container32" style="width: 100%;">
-    
-    <div class="row">
-        <app-header></app-header>
-    </div>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
 
-    <div class="row" >
-        <router-outlet></router-outlet>    
-    </div>
-    
-    <div class="row">
-        <app-footer></app-footer>
-    </div>
-
+  <div class="row">
+    <app-footer></app-footer>
+  </div>
 </div>
-
-
-<!-- <div *ngIf="metadata">
-    <pre>{{ metadata | json }}</pre>
-  </div> -->
