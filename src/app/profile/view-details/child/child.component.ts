@@ -9,12 +9,7 @@ export class ChildComponent {
   @Input() newprop?: number;
   @Output() passingIdDataEvent = new EventEmitter<number>();
   constructor() {}
-  // @Input newProp:any;
-
-  // @Output newEventEmitter= new EventEmitter();
-
-  // ngOnInit(): void {
-  // }
+  
 
   sendSecreteId() {
     this.passingIdDataEvent.emit(this.newprop);

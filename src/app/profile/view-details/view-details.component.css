@@ -3,3 +3,10 @@
   width: 80%;
   border-radius: 5%;
 }
+
+@media (min-width: 500px) and (max-width: 972px) {
+  .container-fluid {
+    padding: 30px;
+    margin: 70px 50px;
+  }
+}

@@ -1,11 +1,5 @@
-.success {
-  color: green;
-  font-size: 20px;
-}
-.error {
-  color: red;
-  font-size: 20px;
-}
+
+
 .navbar-brand {
   margin: 10px 20px;
   font-size: 30px;
@@ -21,13 +15,11 @@
 }
 
 .card {
-  /* width: 30%; */
   margin-bottom: 25px;
   border-radius: 8px 0px 2px 0px;
 }
 .card:hover {
-  /* background-color: rgba(63, 7, 7, 0.281); */
-  box-shadow: 2px 1px 8px black;
+  box-shadow: 1px 1px 3px black;
 }
 img {
   cursor: pointer;

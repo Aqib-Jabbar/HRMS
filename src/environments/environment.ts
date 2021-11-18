@@ -7,20 +7,7 @@ export const environment = {
   api_url: "https://615d577712571a0017207565.mockapi.io/api/v1/employees/",
   country_url: "https://restcountries.com/v2/all",
 };
-// export const environment1 = {
-//   production: false,
-// };
 
-// import { domain,clientId  } from '../../auth_config.json';
-
-// export const environment = {
-//   production: false,
-//   auth: {
-//     domain,
-//     clientId,
-//     redirectUri: window.location.origin,
-//   },
-// };
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

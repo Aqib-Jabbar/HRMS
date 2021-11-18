@@ -38,7 +38,7 @@ export class EditProfileDataComponent implements OnInit {
     console.log(this.id);
 
     this.updateService.getProfileDataId(this.id).subscribe((res: Profile) => {
-      // {this.id,this.title,this.description,this.avatar} = res
+      // {id,title,description,avatar} = res
       this.postDataValue = res;
     });
   }
@@ -48,9 +48,6 @@ export class EditProfileDataComponent implements OnInit {
       (res) => {
         this.router.navigate(["/profile"]);
         this.notify.success("Updated");
-        // this.route.parent
-        // this.router.navigate(['.'], {relativeTo: this.route.parent});
-        // this.router.navigate(['/profile/viewDetails/'+ this.postDataValue.id])
       },
       (error) => {
         this.notify.error("Error:" + error);

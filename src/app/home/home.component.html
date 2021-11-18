@@ -1,8 +1,17 @@
-<div class="container-fluid text-center m-5">
-  <div class="row row-col-2 justify-content-center">
-    <div class="mainlinks col-xxl-4 m-4" *ngFor="let link of links">
+<div class="container-fluid text-center mb-5" style="margin-top: 150px">
+  <div
+    class="
+      row row-cols-sm-2 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2
+      justify-content-center
+    "
+  >
+    <div class="mainlinks col-5 col-sm-5 mt-5" *ngFor="let link of links">
       <a href="/profile">
-        <img src="{{ link.image }}" alt="Something Went Wrong!" />
+        <img
+          src="{{ link.image }}"
+          class="img-fluid"
+          alt="Something Went Wrong!"
+        />
       </a>
     </div>
   </div>

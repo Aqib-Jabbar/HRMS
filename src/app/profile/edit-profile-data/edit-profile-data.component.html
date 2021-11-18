@@ -19,8 +19,17 @@
           name="title"
           [(ngModel)]="postDataValue.title"
           placeholder="Type name.."
+          #title="ngModel"
+          minlength="6"
           required
         />
+        <div
+          *ngIf="title.invalid && (title.dirty || title.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="title.errors?.required">Title is required</div>
+          <div *ngIf="title.errors?.minlength">Must be 6 characters</div>
+        </div>
       </div>
 
       <div class="mb-3">
@@ -31,23 +40,45 @@
           name="avatar"
           [(ngModel)]="postDataValue.avatar"
           placeholder="Give url http://"
+          #avatar="ngModel"
           required
         />
+        <div
+          *ngIf="avatar.invalid && (avatar.dirty || avatar.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="avatar.errors?.required">URL is required</div>
+        </div>
       </div>
-
-      <label for="exampleInputText" class="form-label">Select Country</label>
-      <select
-        class="form-select"
-        aria-label="Default select example"
-        id="countryName"
-        [(ngModel)]="postDataValue.countryName"
-        name="countryName"
-        required
-      >
-        <option *ngFor="let country of countries" [value]="country.name">
-          {{ country.name }}
-        </option>
-      </select>
+      <div class="mb-3">
+        <label for="exampleInputText" class="form-label"
+          >Select Country</label
+        >
+        <select
+          class="form-select required"
+          aria-label="Default select example"
+          id="countryName"
+          required
+          [(ngModel)]="postDataValue.countryName"
+          name="countryName"
+          #countryName="ngModel"
+        >
+          <option *ngFor="let country of countries" [value]="country.name">
+            {{ country.name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            countryName.invalid &&
+            (countryName.dirty || countryName.touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="countryName.errors?.required">
+            CountryName is required
+          </div>
+        </div>
+      </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label"
           >User Details</label
@@ -59,8 +90,21 @@
           name="description"
           [(ngModel)]="postDataValue.description"
           placeholder="Profile details.."
+          #description="ngModel"
           required
+          minlength="30"
         ></textarea>
+        <div
+          *ngIf="
+            description.invalid && (description.dirty || description.touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="description.errors?.required">
+            Description is required
+          </div>
+          <div *ngIf="description.errors?.minlength">Minimum 30 characters</div>
+        </div>
       </div>
     </form>
 
